@@ -1,0 +1,11 @@
+{
+  "name": "cobrowse-sdk-demo-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Arslan Jan <Arslanjs.dev@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "expressjs": "^1.0.1"
+  }
+}
