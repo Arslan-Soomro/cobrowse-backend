@@ -4,7 +4,7 @@ const port = 8000;
 const cors = require("cors");
 const jwt = require("jsonwebtoken");
 const fs = require("fs");
-require('dotenv').config()
+require("dotenv").config();
 
 app.use(express.json());
 app.use(cors());
@@ -14,15 +14,23 @@ app.get("/", (req, res) => {
 });
 
 app.get("/token", async (req, res) => {
-  const email = "arslanjs.dev@gmail.com";
+  const email = "team@usetour.com";
   const licenseKey = process.env.COBROWSE_LICENSE;
   const demoid = req.query.cobrowseio_demo_id;
 
   const privateKey = await fs.readFileSync("./cobrowse-private-key.pem");
   const token = await jwt.sign(
     {
-      displayName: email,
+      displayName: "Team Tour",
       role: "agent",
+
+      /* Use this or just options
+      iat: Math.floor(Date.now() / 1000),
+      exp: Math.floor(Date.now() / 1000) + (60 * 60), // Expires in 1 hour
+      aud: "https://cobrowse.io",
+      iss: licenseKey,
+      sub: email,
+      */
     },
     privateKey,
     {
